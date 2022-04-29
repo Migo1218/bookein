@@ -1,7 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector  } from "react-redux";
+import { useNavigate } from 'react-router-dom'
+import { buy } from "../store/slices/carritoSlice";
+
+import { listarDiplomados } from "../store/slices/diplomadosSlice";
 import Navbar from "./Navbar";
+//Redux
 
 function Diplomados() {
+  const diplomados = useSelector((state) => state.diplomados.listDiplomados);
+  // const [carrito, setCarrito] = useState()
+  // console.log(carrito)
+  
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(listarDiplomados());
+  }, [dispatch]);
+
+
+  const addToCart = (id) => {
+    const productocarrito = diplomados.find((producto) => producto.id === id);
+    console.log(productocarrito)
+    dispatch(buy(productocarrito))
+  }
+
   return (
     <div>
       <Navbar />
@@ -25,39 +49,40 @@ function Diplomados() {
                   </h2>
 
                   <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 justify-center lg:grid-cols-3 xl:gap-x-8">
-                    <div class="max-w-sm rounded overflow-hidden shadow-lg">
-                      <img
-                        class="w-full"
-                        src="https://www.lacasaencendida.es/sites/default/files/styles/full/public/xadobe_illustrator_cc_nt.jpg,qitok=hun-AlJA.pagespeed.ic.0iowputFIq.jpg"
-                        alt="Sunset in the mountains"
-                      />
-                      <div class="px-6 py-4">
-                        <div class="font-bold text-xl mb-2">
-                          Adobe illustrator
-                        </div>
-                        <p class="text-gray-700 text-base">
-                          Si quieres hacer realidad proyectos vectoriales como
-                          un profesional, en este Domestika Basics de 6 cursos
-                          aprenderás a lograrlo, tanto para soportes impresos
-                          como digitales, con Adobe Illustrator. Junto al
-                          ilustrador, diseñador y profesor de 6 cursos de
-                          Domestika, Aarón Martínez, descubrirás cómo funciona
-                          el software, aprenderás desde cero a utilizar las
-                          herramientas más importantes y aplicarás todo lo
-                          aprendido en una variedad de ejercicios prácticos.
-                        </p>
-                      </div>
-                      <div class="px-6 pt-4 pb-2">
-                        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                          $ 45.000
-                        </span>
 
-                        <span class="inline-block bg-orange-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                          Comprar
-                        </span>
+                  {diplomados &&
+                    diplomados.map((diplomado) => (
+                      <div key={diplomado.id} class="mt-6 gap-y-10 gap-x-6 sm:grid-cols-2 justify-center lg:grid-cols-3 xl:gap-x-8">
+                        <div class="max-h-[32rem] max-w-sm rounded overflow-hidden shadow-lg">
+                          <img
+                            class="w-full"
+                            src={diplomado.img}
+                            alt="imagendiplomado"
+                          />
+                          <div class="px-6 py-4">
+                            <div class="font-bold text-xl mb-2">
+                              {diplomado.title}
+                            </div>
+                            <p class="max-h-40 text-gray-700 text-base overflow-y-auto">
+                             {diplomado.description}
+                            </p>
+                          </div>
+                          <div class="px-6 pt-4 pb-2">
+                            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                              $ {diplomado.price}
+                            </span>
+
+                            <span class="cursor-pointer hover:bg-orange-300 inline-block bg-orange-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+                            onClick={() => addToCart(diplomado.id)}>
+                              Agregar al carrito
+                            </span>
+                          </div>
+                        </div>
                       </div>
-                    </div>
+                    ))}
+
                   </div>
+
                 </div>
               </div>
             </div>

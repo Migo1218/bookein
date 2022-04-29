@@ -5,6 +5,7 @@ import Menupequeño from "./Menupequeño";
 
 function Navbar({ toggleOpenClose }) {
   const redirectHome = useNavigate();
+  const redirectCart = useNavigate();
 
   const [openMenu, setOpenMenu] = useState(false);
   console.log(openMenu);
@@ -14,7 +15,7 @@ function Navbar({ toggleOpenClose }) {
 
   return (
     <div className="heig">
-      <nav class="bg-orange-500">
+      <nav class="bg-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex items-center justify-between h-16">
             <div class="flex items-center">
@@ -31,11 +32,11 @@ function Navbar({ toggleOpenClose }) {
                 <div class="ml-10 flex items-baseline space-x-4">
                   {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
                   <p
-                    onClick={() => redirectHome("/")}
+                    onClick={() => redirectCart("/carrito")}
                     class="cursor-pointer hover:bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
                     aria-current="page"
                   >
-                    Inicio
+                    Carrito
                   </p>
                 </div>
               </div>

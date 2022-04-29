@@ -9,7 +9,7 @@ function Menupequeño() {
   const redirectCursos = useNavigate();
 
   return (
-    <div className="text-center items-center bg-gray-800">
+    <div className="md:hidden text-center items-center bg-gray-800">
      
        
 
