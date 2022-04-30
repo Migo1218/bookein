@@ -71,10 +71,10 @@ function Diplomados() {
                               $ {diplomado.price}
                             </span>
 
-                            <span class="cursor-pointer hover:bg-orange-300 inline-block bg-orange-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+                            <button type="button" class="cursor-pointer hover:bg-orange-300 inline-block bg-orange-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
                             onClick={() => addToCart(diplomado.id)}>
                               Agregar al carrito
-                            </span>
+                            </button>
                           </div>
                         </div>
                       </div>
