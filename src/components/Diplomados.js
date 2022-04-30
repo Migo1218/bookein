@@ -67,11 +67,11 @@ function Diplomados() {
                             </p>
                           </div>
                           <div class="px-6 pt-4 pb-2">
-                            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                            <p class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
                               $ {diplomado.price}
-                            </span>
+                            </p>
 
-                            <button type="button" class="cursor-pointer hover:bg-orange-300 inline-block bg-orange-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+                            <button class="bg-orange-500 hover:bg-orange-800 text-white font-semibold py-2 px-4 rounded-full"
                             onClick={() => addToCart(diplomado.id)}>
                               Agregar al carrito
                             </button>
