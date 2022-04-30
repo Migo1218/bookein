@@ -8,7 +8,7 @@ function Navbar({ toggleOpenClose }) {
   const redirectCart = useNavigate();
 
   const [openMenu, setOpenMenu] = useState(false);
-  console.log(openMenu);
+  // console.log(openMenu);
   const toggleOpen = () => {
     setOpenMenu(!openMenu);
   };
@@ -21,23 +21,26 @@ function Navbar({ toggleOpenClose }) {
             <div class="flex items-center">
               <div class="flex-shrink-0">
                 <img
-                  onClick={()=>redirectHome('/')}
+                  onClick={() => redirectHome("/")}
                   class="h-8 w-8 cursor-pointer"
                   src="https://res.cloudinary.com/dwhhfl68n/image/upload/v1651189637/incapresources/diplomalogo_rgtzjv.png"
                   alt="Workflow"
                 />
               </div>
 
-              <div class="hidden md:block">
+              <div class="">
                 <div class="ml-10 flex items-baseline space-x-4">
                   {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
-                  <p
+                  {/* <p
                     onClick={() => redirectCart("/carrito")}
                     class="cursor-pointer hover:bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
-                    aria-current="page"
-                  >
+                    >
                     Carrito
-                  </p>
+                  </p> */}
+                  <span
+                  onClick={() => redirectCart("/carrito")}
+                  aria-current="page"
+                  class="cursor-pointer material-symbols-outlined hover:bg-gray-900 text-white py-2 px-3 rounded-md">shopping_cart</span>
                 </div>
               </div>
             </div>
@@ -98,12 +101,11 @@ function Navbar({ toggleOpenClose }) {
                 </svg>
               </button>
             </div>
+            {/* here  */}
           </div>
         </div>
 
         {/* <!-- Mobile menu, show/hide based on menu state. --> */}
-
-        
       </nav>
 
       <header class="bg-white shadow">
@@ -113,7 +115,6 @@ function Navbar({ toggleOpenClose }) {
       </header>
       {openMenu && <Menupequeño />}
     </div>
-    
   );
 }
 

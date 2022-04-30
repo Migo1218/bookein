@@ -5,18 +5,12 @@ import Navbar from "./Navbar";
 function Principal() {
   const redirectDiplomados = useNavigate();
   const redirectSeminarios = useNavigate();
-  const redirectCursos = useNavigate();
 
 
 
   return (
     <div>
     <Navbar />
-    {/* <header class="bg-red-600">
-        <div class="max-w-7xl mx-auto py-0 px-4 pb-2 sm:px-6 lg:px-8">
-          <h1 class="text-3xl font-bold text-gray-900">Diplomados</h1>
-        </div>
-      </header>  */}
 
 
     <main className="bg-gray-800">
@@ -30,7 +24,7 @@ function Principal() {
                   Cursos de educación continua
                 </h2>
 
-                <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 justify-center lg:grid-cols-3 xl:gap-x-8">
+                <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 justify-center lg:grid-cols-2 xl:gap-x-8">
                   {/* Primer div  */}
 
                   <div class="group relative">
@@ -90,35 +84,10 @@ function Principal() {
                     </div>
                   </div>
 
-                  {/* Tercer Div  */}
+                 
 
-                  <div class="group relative">
-                    <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-                      <img
-                        src="https://res.cloudinary.com/dwhhfl68n/image/upload/v1651190704/incapresources/apple-256261_640_slqrdf.jpg"
-                        alt="Front of men&#039;s Basic Tee in black."
-                        class="w-full h-full object-center object-cover lg:w-full lg:h-full"
-                      />
-                    </div>
-                    <div class="mt-4 flex justify-center">
-                      <div class="text-center">
-                        <h3 class="text-base font-extrabold tracking-tight text-gray-900 text-center">
-                          <p
-                            onClick={() => redirectCursos("/cursos")}
-                            className="cursor-pointer"
-                          >
-                            <span
-                              aria-hidden="true"
-                              class="absolute inset-0"
-                            ></span>
-                            CURSOS CORTOS
-                          </p>
-                        </h3>
-                        {/* <p class="mt-1 text-sm text-gray-500">Black</p> */}
-                      </div>
-                      {/* <p class="text-sm font-medium text-gray-900">$35</p> */}
-                    </div>
-                  </div>
+
+                  
                 </div>
               </div>
             </div>

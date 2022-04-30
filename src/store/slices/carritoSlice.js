@@ -1,23 +1,37 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-
 export const carritoSlice = createSlice({
-    name: "carrito",
-    initialState: {
-        productoscarrito: []
+  name: "carrito",
+  initialState: {
+    productoscarrito: JSON.parse(localStorage.getItem("productosadd")) || [],
+  },
+  reducers: {
+    setCarrito: (state, action) => {
+      const nuevosProductos = [...state.productoscarrito, action.payload];
+      localStorage.setItem("productosadd", JSON.stringify(nuevosProductos));
+      state.productoscarrito = nuevosProductos;
     },
-    reducers:{
-        setCarrito: (state, action) => {
-            state.productoscarrito = [...state.productoscarrito, action.payload];
-        }
-    }
+    deleteItemCarrito: (state, action) => {
+      const nuevosProductosDelete = [...action.payload];
+      localStorage.setItem(
+        "productosadd",
+        JSON.stringify(nuevosProductosDelete)
+      );
+      state.productoscarrito = nuevosProductosDelete;
+    },
+  },
 });
 
-export default carritoSlice.reducer
+export default carritoSlice.reducer;
 export const { setCarrito } = carritoSlice.actions;
+export const { deleteItemCarrito } = carritoSlice.actions;
 
-export const buy = (productocarrito) => {
-    return (dispatch) => {
-        dispatch(setCarrito(productocarrito))
-    }
-}
+// export const buy = (productocarrito) => {
+//   return (dispatch) => {
+//     dispatch(
+//       setCarrito(
+//         productocarrito
+//       )
+//     );
+// };
+// };

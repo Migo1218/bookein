@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector  } from "react-redux";
-import { useNavigate } from 'react-router-dom'
-import { buy } from "../store/slices/carritoSlice";
+import { buy, setCarrito } from "../store/slices/carritoSlice";
 
 import { listarDiplomados } from "../store/slices/diplomadosSlice";
 import Navbar from "./Navbar";
@@ -22,15 +21,15 @@ function Diplomados() {
 
   const addToCart = (id) => {
     const productocarrito = diplomados.find((producto) => producto.id === id);
-    console.log(productocarrito)
-    dispatch(buy(productocarrito))
+    dispatch(setCarrito(productocarrito))
   }
 
   return (
     <div>
       <Navbar />
       <header class="bg-white shadow">
-        <div class="max-w-8xl mx-auto py-0 px-4 pb-2 bg-orange-100 sm:px-6 lg:px-8">
+        <div class="mx-auto bg-orange-100 ">
+       {/* <img  class="w-full h-32" src="https://res.cloudinary.com/dwhhfl68n/image/upload/v1651349545/incapresources/universe-1566161_1920_kx0liz.jpg" alt="banner" /> */}
           <h1 class="text-3xl font-bold text-gray-900 text-center pb-5 py-5">
             Diplomados
           </h1>
