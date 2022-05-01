@@ -65,7 +65,7 @@ function Seminarios() {
                     Seminarios (Clases Síncronas)
                   </h2>
                   {/* Div Formulario   */}
-                  <div class="w-96 mx-auto mt-6 grid grid-cols-1 gap-y-10 gap-x-6 justify-center xl:gap-x-8">
+                  <div class="sm:w-auto md:w-96 mx-auto mt-6 grid grid-cols-1 gap-y-10 gap-x-6 justify-center xl:gap-x-8">
                     <form onSubmit={formik.handleSubmit}>
 
                       <div className="form-group">
