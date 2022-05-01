@@ -20,7 +20,7 @@ function Navbar({ toggleOpenClose }) {
 
   useEffect(() => {
     setProductsLength(
-      productosCarrito?.reduce( (previousValue, currentValue) => productsLength + productosCarrito.length,
+      productosCarrito?.reduce( (previousValue, currentValue) => previousValue + currentValue,
       0
       )
     );
