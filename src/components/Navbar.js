@@ -1,11 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import "../styles/navbarstyles.css";
 import Menupequeño from "./Menupequeño";
 
 function Navbar({ toggleOpenClose }) {
+  const productosCarrito = useSelector(
+    (state) => state.carrito.productoscarrito
+  );
+  const cantidadArticulos = productosCarrito.length
   const redirectHome = useNavigate();
   const redirectCart = useNavigate();
+  
+  const [productsLength, setProductsLength] = useState(0)
+
+  console.log(productsLength)
+
+  
+
+  useEffect(() => {
+    setProductsLength(
+      productosCarrito?.reduce( (previousValue, currentValue) => productsLength + productosCarrito.length,
+      0
+      )
+    );
+  }, [productosCarrito]);
 
   const [openMenu, setOpenMenu] = useState(false);
   // console.log(openMenu);
@@ -26,21 +45,20 @@ function Navbar({ toggleOpenClose }) {
                   src="https://res.cloudinary.com/dwhhfl68n/image/upload/v1651189637/incapresources/diplomalogo_rgtzjv.png"
                   alt="Workflow"
                 />
+                
               </div>
 
               <div class="">
-                <div class="ml-10 flex items-baseline space-x-4">
-                  {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
-                  {/* <p
-                    onClick={() => redirectCart("/carrito")}
-                    class="cursor-pointer hover:bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
-                    >
-                    Carrito
-                  </p> */}
+                <div class="relative ml-10 flex items-baseline space-x-4">
+                
                   <span
+                
                   onClick={() => redirectCart("/carrito")}
                   aria-current="page"
-                  class="cursor-pointer material-symbols-outlined hover:bg-gray-900 text-white py-2 px-3 rounded-md">shopping_cart</span>
+                  class="cursor-pointer material-symbols-outlined hover:bg-gray-900 text-white py-2 px-3 rounded-md">
+                    shopping_cart
+                  </span>
+                  {!cantidadArticulos ? <div></div>:(<div className="productsNumber">{cantidadArticulos}</div>)}
                 </div>
               </div>
             </div>
@@ -108,11 +126,12 @@ function Navbar({ toggleOpenClose }) {
         {/* <!-- Mobile menu, show/hide based on menu state. --> */}
       </nav>
 
-      <header class="bg-white shadow">
-        {/* <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-            <h1 class="text-3xl font-bold text-gray-900">Dashboard</h1>
-          </div> */}
-      </header>
+      {/* <header class="bg-white shadow">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <h1 class="text-3xl font-bold text-gray-900">{cantidadArticulos}</h1>
+            
+          </div>
+      </header> */}
       {openMenu && <Menupequeño />}
     </div>
   );

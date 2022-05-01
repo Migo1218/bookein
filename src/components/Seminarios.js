@@ -152,9 +152,9 @@ function Seminarios() {
                          
                         </label>
                       </div>
-                      <div className="relative z-0 w-full mb-6 group">
+                      <div className="relative z-0 w-full mb-6 group border-0 border-b-4 border-gray-800">
 
-                        <DatePicker className=" text-sm text-gray-500" value={fechaseleccionada} onChange={setFechaseleccionada} />
+                        <DatePicker className="" value={fechaseleccionada} onChange={setFechaseleccionada} />
                       </div>
                       <button
                       

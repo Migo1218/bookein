@@ -1,3 +1,18 @@
 /* .cart {
   color: white;
 } */
+.productsNumber {
+  height: 20px;
+  width: 20px;
+  border-radius: 999px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #fb3939;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

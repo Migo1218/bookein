@@ -19,10 +19,8 @@ function Carrito() {
 
   const deleteItem = (id) => {
     const producto = JSON.parse(localStorage.getItem("productosadd"));
-        console.log(producto)
         const nuevosProductos = producto.filter(producto => producto.id !== id);
     
-        console.log(nuevosProductos)
         // localStorage.setItem('productosadd',JSON.stringify(nuevosProductos));
     dispatch(deleteItemCarrito(nuevosProductos))
    
