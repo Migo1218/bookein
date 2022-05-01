@@ -4,6 +4,7 @@ import Carrito from '../components/Carrito'
 import Diplomados from '../components/Diplomados'
 import Principal from '../components/principal'
 import Seminarios from '../components/Seminarios'
+import Seminarioscursos from '../components/Seminarioscursos'
 
 export default function AppRouter() {
   return (
@@ -14,6 +15,8 @@ export default function AppRouter() {
           <Route exact path="/diplomados" element={<Diplomados />} />
           <Route exact path="/seminarios" element={<Seminarios />} />
           <Route exact path="/carrito" element={<Carrito />} />
+          <Route exact path="/cursosseminarios" element={<Seminarioscursos />} />
+          
           
         </Routes>
       </BrowserRouter>

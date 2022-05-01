@@ -20,8 +20,9 @@ function Seminarios() {
     // validationSchema: schema,
 
     onSubmit: (data, {resetForm}) => {
-      redirectHome('/')
+      redirectHome('/cursosseminarios')
       console.log(data)
+      localStorage.setItem('datosusuario', JSON.stringify(data));
       const date = fechaseleccionada
       const months = ["Enero", "Febrero", "Marzo","Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
       const formatDate = (date)=>{
@@ -30,6 +31,7 @@ function Seminarios() {
     }
     
     const fechafinal = formatDate(date);
+    localStorage.setItem('fechaseleccionada', JSON.stringify(fechafinal));
       console.log(fechafinal)
       resetForm()
       // dispatch(loginEmailPassword(data.email,data.password1))      
