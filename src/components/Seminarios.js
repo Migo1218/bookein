@@ -19,7 +19,7 @@ function Seminarios() {
     
     // validationSchema: schema,
 
-    onSubmit: (data, {resetForm}, {form}) => {
+    onSubmit: (data, {resetForm}) => {
       redirectHome('/')
       console.log(data)
       const date = fechaseleccionada
