@@ -33,15 +33,7 @@ function Menupequeño() {
           </p>
         </div>
 
-        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <p
-            onClick={() => redirectCursos("/cursos")}
-            class="cursor-pointer bg-gray-500 text-gray-900 block px-3 py-2 rounded-md text-base font-medium text-center"
-            // aria-current="page"
-          >
-            Cursos cortos
-          </p>
-        </div>
+        
       </div>
    
   );
