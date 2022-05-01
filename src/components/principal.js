@@ -47,7 +47,7 @@ function Principal() {
                               aria-hidden="true"
                               class="absolute inset-0"
                             ></span>
-                            DIPLOMADOS
+                            DIPLOMADOS Y CURSOS CORTOS
                           </p>
                         </h3>
                         {/* <p class="mt-1 text-sm text-gray-500">Black</p> */}

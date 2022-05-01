@@ -31,7 +31,6 @@ export const listarDiplomados = () => {
                 id: doc.id, ...doc.data()
                 
             })
-            console.log(produc)
         });
         dispatch(setDiplomadoList(produc))
         // dispatch(listar(produc));

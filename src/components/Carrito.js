@@ -11,6 +11,11 @@ function Carrito() {
 
   const dispatch = useDispatch();
   
+  const producto = JSON.parse(localStorage.getItem("productosadd"));
+  console.log(producto)
+  console.log(producto.map((item)=>(
+    item.price += item.price
+    )))
 
   const deleteItem = (id) => {
     const producto = JSON.parse(localStorage.getItem("productosadd"));
